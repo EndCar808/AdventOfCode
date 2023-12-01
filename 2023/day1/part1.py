@@ -1,4 +1,3 @@
-data = []
 num_tot = 0
 with open("input.txt") as infile:
 # with open("test.txt") as infile:
