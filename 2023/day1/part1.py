@@ -1,6 +1,7 @@
 data = []
 num_tot = 0
 with open("input.txt") as infile:
+# with open("test.txt") as infile:
 	## Read in lines from input file
 	for line in infile:
 
@@ -15,7 +16,8 @@ with open("input.txt") as infile:
 				continue
 
 		## Update total with calibration values - first and last digits
-		num_tot += int(num_tmp[0]) + int(num_tmp[-1])
-		print(num_tot)
+		num_tot += int(num_tmp[0] + num_tmp[-1])
+		print(num_tmp[0] + num_tmp[-1])
+		
 
 print(num_tot)
