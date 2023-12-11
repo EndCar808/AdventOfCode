@@ -2,7 +2,6 @@ with open("input.txt") as infile:
 # with open("test.txt") as infile:
 	data = infile.read().splitlines()
 
-num_cards = len(data)
 points = 0
 
 for line in data:
