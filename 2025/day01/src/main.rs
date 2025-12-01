@@ -42,7 +42,6 @@ fn part1(input: &str) -> i64 {
 fn part2(input: &str) -> i64 {
     
     let mut tmp = 50;
-    let mut count = 0;
     let mut count_zero = 0;
 
 
@@ -57,25 +56,17 @@ fn part2(input: &str) -> i64 {
             count_zero += (tmp + num) / 100;
             tmp = modulo(tmp + num, 100);
         } else {
-            // COunt the rolls here too
-            // if num > tmp {
-            //    count_zero += (num - tmp + 99) / 100;
-            // }
-            //tmp = modulo(tmp - num, 100);
-            
-            let crosses = (num - tmp).div_euclid(100);
-            count_zero += crosses;
+            // Map left from tmp to right from s_prime = (100 - tmp) % 100
+            let s_prime = (100 - tmp).rem_euclid(100);
+            count_zero += (s_prime + num) / 100;
 
             tmp = (tmp - num).rem_euclid(100);
         }
 
-        if tmp == 0 {
-            count += 1;
-        }
-        println!("{}, {} -- {}, {} -- {}, {}, {}", direction, num, tmp, count, tmp, num, count_zero);
+        println!("{}, {} -- {}, {}", direction, num, tmp, count_zero);
     }
 
-    return count_zero + count
+    return count_zero 
 }
 
 fn modulo(a: i64, m:i64) -> i64 {
